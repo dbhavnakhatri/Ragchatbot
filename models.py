@@ -3,7 +3,6 @@ from typing import List, Optional, Dict, Any
 from datetime import datetime
 
 class UploadRequest(BaseModel):
-    """Request model for uploading content"""
     content: Optional[str] = Field(None, description="Direct text content to upload")
     url: Optional[str] = Field(None, description="URL to fetch content from")
     
@@ -16,18 +15,15 @@ class UploadRequest(BaseModel):
         }
 
 class UploadResponse(BaseModel):
-    """Response model after successful upload"""
     bot_id: str
     chunks_created: int
     message: str
 
 class Message(BaseModel):
-    """Individual message in conversation"""
     role: str = Field(..., description="Either 'user' or 'assistant'")
     content: str
 
 class ChatRequest(BaseModel):
-    """Request model for chat endpoint"""
     bot_id: str
     user_message: str
     conversation_history: List[Message] = Field(default_factory=list)
@@ -45,7 +41,6 @@ class ChatRequest(BaseModel):
         }
 
 class BotStats(BaseModel):
-    """Statistics for a specific bot"""
     bot_id: str
     total_messages: int
     average_response_latency_ms: float
@@ -55,7 +50,6 @@ class BotStats(BaseModel):
     last_accessed: str
 
 class ChatMetadata(BaseModel):
-    """Internal tracking for chat sessions"""
     bot_id: str
     timestamp: datetime
     response_time_ms: float

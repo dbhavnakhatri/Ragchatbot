@@ -109,13 +109,9 @@ dmypy.json
 chroma.sqlite3
 chroma.sqlite3-journal
 
-# API Keys (just in case)
+# API Keys 
 *api_key*
 *secret*
 *.pem
 *.key
 
-# Data files (uncomment if you don't want to track uploaded data)
-# *.txt
-# *.pdf
-# *.docx
